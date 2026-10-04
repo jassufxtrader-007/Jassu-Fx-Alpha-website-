@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading with Jassim | Elite Forex Signals & Analysis</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0e17;
+            --bg-card: #121824;
+            --primary-gold: #f5b000;
+            --primary-green: #00e676;
+            --text-white: #ffffff;
+            --text-gray: #a0aec0;
+            --accent-blue: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f5b000, #ff8c00);
+            color: #000;
+            padding: 14px 28px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 176, 0, 0.4);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 176, 0, 0.6);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 12px 26px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-gold);
+            color: #000;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-white);
+        }
+
+        .section-title span {
+            color: var(--primary-gold);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(245, 176, 0, 0.1) 0%, rgba(10, 14, 23, 1) 70%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Ticker */
+        .ticker-wrap {
+            width: 100%;
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 35px 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: var(--bg-card);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .price-card.popular {
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 0 25px rgba(245, 176, 0, 0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: var(--primary-gold);
+            color: #000;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .price-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .price-features li {
+            margin-bottom: 12px;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price-features li i {
+            color: var(--primary-green);
+        }
+
+        /* Live Chart Section */
+        .chart-section {
+            padding: 80px 0;
+            background: var(--bg-card);
+        }
+
+        .chart-container {
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Steps Section */
+        .steps {
+            padding: 100px 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(245, 176, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        /* FAQ Accordion */
+        .faq {
+            padding: 100px 0;
+            background: var(--bg-card);
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-dark);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            color: var(--text-gray);
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 200px;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(245, 176, 0, 0.15), rgba(10, 14, 23, 1));
+            border-top: 1px solid var(--primary-gold);
+        }
+
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0 20px;
+            background: #05070c;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info p {
+            color: var(--text-gray);
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--text-white);
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #64748b;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-btns {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Trading With <span>Jassim</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Why Us</a></li>
+                <li><a href="#pricing">VIP Plans</a></li>
+                <li><a href="#chart">Live Chart</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="https://t.me/itx_londa_01" target="_blank" class="btn-gold"><i class="fa-brands fa-telegram"></i> Join Telegram</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Master Forex Trading With Daily High-Accuracy Signals</h1>
+            <p>Join over 5,000+ traders scaling their portfolios with real-time market updates, accurate trade setups, and professional risk management.</p>
+            <div class="hero-btns">
+                <a href="https://t.me/itx_londa_01" target="_blank" class="btn-gold"><i class="fa-brands fa-telegram"></i> Join Free Telegram Channel</a>
+                <a href="#pricing" class="btn-outline">Explore VIP Membership</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Ticker Bar -->
+    <div class="ticker-wrap">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols": [
+                {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500 Index"},
+                {"proName": "FOREXCOM:NSXUSD", "title": "US Tech 100"},
+                {"fxProName": "FX_IDC:EURUSD", "title": "EUR/USD"},
+                {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
+                {"proName": "FX:GBPUSD", "title": "GBP/USD"},
+                {"proName": "OANDA:XAUUSD", "title": "Gold (XAU/USD)"}
+            ],
+            "showSymbolLogo": true,
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "locale": "en"
+            }
+            </script>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Trade With <span>Jassim?</span></h2>
+            <p class="section-subtitle">Get top-tier analysis and signals designed to turn beginners into disciplined traders.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>85%+ Signal Accuracy</h3>
+                    <p>High-probability trade calls executed with exact Entry, Take Profit, and Stop Loss levels.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Daily Market Analysis</h3>
+                    <p>In-depth fundamental news breakdowns and price action setups delivered directly to your phone.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Risk Management</h3>
+                    <p>Strict rules to protect your capital and maintain long-term consistency in the Forex market.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h3>1-on-1 Support</h3>
+                    <p>Direct assistance via Telegram to clear queries, evaluate setups, and enhance your strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h2>5,000+</h2>
+                    <p>Active Members</p>
+                </div>
+                <div class="stat-item">
+                    <h2>85%+</h2>
+                    <p>Win Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h2>10,000+</h2>
+                    <p>Monthly Pips</p>
+                </div>
+                <div class="stat-item">
+                    <h2>5+ Years</h2>
+                    <p>Market Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Chart Section -->
+    <section class="chart-section" id="chart">
+        <div class="container">
+            <h2 class="section-title">Live Forex <span>Market Overview</span></h2>
+            <p class="section-subtitle">Track market movements live using full-featured TradingView charting.</p>
+            <div class="chart-container">
+                <div class="tradingview-widget-container" style="height:100%;width:100%">
+                    <div id="tradingview_chart" style="height:100%;width:100%"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                    <script type="text/javascript">
+                    new TradingView.widget(
+                    {
+                    "autosize": true,
+                    "symbol": "OANDA:XAUUSD",
+                    "interval": "60",
+                    "timezone": "Etc/UTC",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "en",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "hide_side_toolbar": false,
+                    "allow_symbol_change": true,
+                    "container_id": "tradingview_chart"
+                    }
+                    );
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your <span>Membership Plan</span></h2>
+            <p class="section-subtitle">Join our community and transform your trading journey today.</p>
+
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3>Free Telegram</h3>
+                        <div class="price-amount">$0 <span>/ Free</span></div>
+                    </div>
+                    <ul class="price-features">
+                        <li><i class="fa-solid fa-check"></i> 1-2 Signals Daily</li>
+                        <li><i class="fa-solid fa-check"></i> Basic Market Updates</li>
+                        <li><i class="fa-solid fa-check"></i> Weekly Video Breakdown</li>
+                        <li><i class="fa-solid fa-check"></i> Community Group Access</li>
+                    </ul>
+                    <a href="https://t.me/itx_londa_01" target="_blank" class="btn-outline">Join Free Channel</a>
+                </div>
+
+                <!-- VIP Monthly -->
+                <div class="price-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="price-header">
+                        <h3>VIP Monthly</h3>
+                        <div class="price-amount">$49 <span>/ Month</span></div>
+                    </div>
+                    <ul class="price-features">
+                        <li><i class="fa-solid fa-check"></i> 3-5 VIP Signals Daily</li>
+                        <li><i class="fa-solid fa-check"></i> Exact Entry, SL, & 3 TPs</li>
+                        <li><i class="fa-solid fa-check"></
